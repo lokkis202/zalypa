@@ -1,20 +1,45 @@
-﻿// Git_test.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
+﻿#include "Array.h"
 #include <iostream>
+using namespace std;
 
-int main()
+int main() // хаха твоя прога не оч 
+// пфф, а ты попробуй лучше написать
 {
-    std::cout << "Hello World!\n";
+    double array[7] = { 5, 3, 7, 9, 0, 1, 7 };
+    int length = size(array);
+
+    cout << "Array after bubble sorting:\n";
+    printArray(array, length);
+
+    sortArray(array, length);
+
+    cout << "Array before bubble sorting:\n";
+    printArray(array, length);
 }
 
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
+double* sortArray(double* array, int length)
+{
+    double element;
+    for (int i = 0; i < length; i++)
+    {
+        for (int j = 0; j < length - 1; j++)
+        {
+            if (array[j] > array[j + 1])
+            {
+                element = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = element;
+            }
+        }
+    }
+    return array;
+}
 
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+void printArray(double* array, int length)
+{
+    for (int i = 0; i < length; i++)
+    {
+        cout << array[i] << ' ';
+    }
+    cout << endl;
+}
